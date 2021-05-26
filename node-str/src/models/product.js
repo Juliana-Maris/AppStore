@@ -2,8 +2,6 @@
 'use strict'
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const MongoInMemory = require('mongo-in-memory');
-//const Schema = MongoInMemory.Schema;
 
 const schema = new Schema({
     title: {

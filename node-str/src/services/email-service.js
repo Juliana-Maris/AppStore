@@ -15,6 +15,6 @@ exports.send = async (to, subject, body) => {
   // html: body
   //})
 }
-// depois instalar o sendgrid no terminal npm install sendgrid@2.0.0 --save
-// ou esta: ou colocar sendgrid no file json salvar e apenas npm install
+// qdo tiver conta em serviço de email, instalar o sendgrid no terminal npm install sendgrid@2.0.0 --save
+// ou colocar sendgrid no file json salvar e apenas npm install
 //depois importar no costummer controller e configurar

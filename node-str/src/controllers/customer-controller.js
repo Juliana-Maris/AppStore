@@ -4,7 +4,7 @@ const ValidationContract = require('../validators/file-validator');
 const repository = require('../repositories/customer-repository');
 const md5 = require('md5');
 const authService = require('../services/auth-service');
-const emailServices = require('../services/email-service'); //era comentario testar ????
+const emailServices = require('../services/email-service');
 
 exports.post = async (req, res, next) => {
     let contract = new ValidationContract();
@@ -20,7 +20,7 @@ exports.post = async (req, res, next) => {
         await repository.create({
             name: req.body.name,
             email: req.body.email,
-            password: md5(req.body.password + global.SALT_KEY), // este global é para aumentar a segurança
+            password: md5(req.body.password + global.SALT_KEY), //este global aumenta segurança
             roles: ["user"]
         });
         //emailService.send(req.body.email, 'bem vindo a Api Node Store','global.EMAIL_TMPL.replace('{ 0}', req.body.name));
@@ -65,7 +65,6 @@ exports.authenticate = async (req, res, next) => {
         res.status(500).send({ message: 'Falha ao cadastrar cliente.' });
     }
 };
-
 exports.refreshToken = async (req, res, next) => {
     try {
         const token = req.body.token || req.query.token || req.headers['x-access-token'];

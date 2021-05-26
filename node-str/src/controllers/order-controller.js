@@ -1,6 +1,6 @@
 
 'use strict'
-//const ValidationContract = require('../validators/file-validator'); tirou p/ ir mais rapido
+//const ValidationContract = require('../validators/file-validator'); comentei p/ ir mais rapido os testes
 const repository = require('../repositories/order-repository');
 const guid = require('guid');
 const authService = require('../services/auth-service');
@@ -21,7 +21,7 @@ exports.post = async (req, res, next) => {
         const data = await authService.decodeToken(token);
 
         await repository.create({
-            customer: data.id, // passar customer no corpo da req é errado, trocou por data
+            customer: data.id,
             number: guid.raw().substring(0, 6),
             items: req.body.items
         });

@@ -1,14 +1,11 @@
 'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
-//aqui ele carrega o mongoose, carrego o Mongo InMemory??
 const mongoose = require('mongoose');
-//const MongoInMemory = require('mongo-in-memory'); //faço isso?
 const config = require('./config')
 
 const app = express();
 const router = express.Router();
-// aqui  conecta mongoose ao banco na nuvem (não faço nada? api esta rodando!)
 mongoose.connect(config.connectionString);
 
 // carregar models
@@ -16,7 +13,7 @@ const Product = require("./models/product");
 const Customer = require("./models/customer");
 const Order = require("./models/order");
 // carrega rotas
-const indexRoute = require('./routes/indexroute'); // apenas index e não indexroute
+const indexRoute = require('./routes/indexroute');
 const productRoute = require('./routes/productroute');
 const customerRoute = require('./routes/customer-route');
 const orderRoute = require('./routes/order-route');

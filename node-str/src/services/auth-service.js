@@ -46,7 +46,7 @@ exports.isAdmin = function (req, res, next) {
                 jwt.verify(token, global > SALT_KEY, function (error, decoded) {
                     if (error) {
                         res.status(401).json({
-                            message: ' token invalido'
+                            message: 'token invalido'
                         });
                     } else {
                         if (decoded.roles.includes('admin')) {

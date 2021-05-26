@@ -1,11 +1,9 @@
 
 'use strict'
-//const mongoose = require("mongoose");
-//const Product = mongoose.model("Product"); diz que não precisa destas linhas
 const ValidationContract = require('../validators/file-validator');
 const repository = require('../repositories/product-repository');
 // const guid = require('guid'); para qdo tiver o serviço de email contratado
-// const azure = require('azure-storage');
+// const azure = require('azure-storage'); para qdo tiver conta azure cadastrada
 var config = require('../config');
 
 exports.get = async (req, res, next) => {
@@ -25,7 +23,6 @@ exports.getBySlug = async (req, res, next) => {
         res.status(500).send({ message: 'Falha ao processar sua requisição' });
     }
 }
-// metodo id é interessante para setor administrativo ou setor especifico
 exports.getById = async (req, res, next) => {
     try {
         var data = await repository.getById(req.params.id);
@@ -34,7 +31,6 @@ exports.getById = async (req, res, next) => {
         res.status(500).send({ message: 'Falha ao processar sua requisição' });
     }
 };
-//metodo que lista por array, por tags não precisa fazer forEach
 exports.getByTag = async (req, res, next) => {
     try {
         const data = await repository.getByTag(req.params.tag);
@@ -54,8 +50,9 @@ exports.post = async (req, res, next) => {
         return;
     }
 
-    // aqui é para ser feita configuração para imagens 
-    // cria o Blob Service
+
+    // aqui é para ser feita configuração para imagens, mas deve ser feita somente qdo tiver conta no azure 
+    // criar o Blob Service
 
     try {
         await repository.create(req.body);
