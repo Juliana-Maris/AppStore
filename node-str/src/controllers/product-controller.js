@@ -2,7 +2,7 @@
 'use strict'
 const ValidationContract = require('../validators/file-validator');
 const repository = require('../repositories/product-repository');
-// const guid = require('guid'); para qdo tiver o serviço de email contratado
+const guid = require('guid'); //para qdo tiver o serviço de email contratado??
 // const azure = require('azure-storage'); para qdo tiver conta azure cadastrada
 var config = require('../config');
 

@@ -10,7 +10,7 @@ router.get('/:slug', controller.getBySlug);
 router.get('/admin/:id', controller.getById);
 router.get('/tags/:tag', controller.getByTag);
 
-router.post('/', authService.isAdmin, controller.post);
+router.post('/', authService.authorize, controller.post); // com isAdmin não funciona
 router.put('/:id', authService.isAdmin, controller.put);
 router.delete('/', authService.isAdmin, controller.delete); // tirou o id '/:id'
 

@@ -21,7 +21,7 @@ exports.post = async (req, res, next) => {
             name: req.body.name,
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY), //este global aumenta segurança
-            roles: ["user"]
+            roles: ["user"] //para cadastrar admin mudar para admin
         });
         //emailService.send(req.body.email, 'bem vindo a Api Node Store','global.EMAIL_TMPL.replace('{ 0}', req.body.name));
         res.status(201).send({ message: "Cliente cadastrado com sucesso!" });

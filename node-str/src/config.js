@@ -3,6 +3,6 @@ global.EMAIL_TMPL = 'Olá, <strong>Olá.{0}<strong>seja bem vindo à API Store!'
 
 module.exports = {
     connectionString: "mongodb+srv://pepita:2014@cluster0.gteiq.mongodb.net/blogposts?retryWrites=true&w=majority",
-    sendgridKey: 'TBD',// entre aspas colocar link do serviço de email que contratar
-    containerConnectionString: 'TBD' // aqui colocar o link do azure -connectionstring
+    sendgridKey: 'Sua chave',// entre aspas colocar link do serviço de email que contratar
+    containerConnectionString: 'sua connection string' // aqui colocar o link do azure -connectionstring
 }
