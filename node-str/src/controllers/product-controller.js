@@ -49,11 +49,8 @@ exports.post = async (req, res, next) => {
         res.status(400).send(contract.errors()).end();
         return;
     }
-
-
     // aqui é para ser feita configuração para imagens, mas deve ser feita somente qdo tiver conta no azure 
     // criar o Blob Service
-
     try {
         await repository.create(req.body);
         res.status(201).send({ message: "Produto cadastrado com sucesso." });
