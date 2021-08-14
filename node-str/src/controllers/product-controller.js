@@ -7,7 +7,6 @@ const guid = require('guid'); //para qdo tiver o serviço de email contratado??
 var config = require('../config');
 
 exports.get = async (req, res, next) => {
-    console.log('entrou')
     try {
         var data = await repository.get();
         res.status(200).send(data);
@@ -61,7 +60,7 @@ exports.post = async (req, res, next) => {
 exports.put = async (req, res, next) => {
     try {
         await repository.update(req.params.id, req.body);
-        res.status(200).send({ message: 'Produto atualizado com sucesso' });
+        res.status(201).send({ message: 'Produto atualizado com sucesso' });
     } catch (e) {
         res.status(500).send({ message: 'Falha ao processar sua requisição' });
     }
@@ -69,8 +68,8 @@ exports.put = async (req, res, next) => {
 };
 exports.delete = async (req, res, next) => {
     try {
-        await repository.delete(req.body.id);
-        res.status(200).send({ message: 'Produto excluído com sucesso' });
+        await repository.delete(req.body.id); // ou req.params.id???
+        res.status(201).send({ message: 'Produto excluído com sucesso' });
     } catch (e) {
         res.status(500).send({ message: 'Falha ao processar sua requisição' });
     }

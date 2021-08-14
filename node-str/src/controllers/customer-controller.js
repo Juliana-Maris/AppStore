@@ -21,7 +21,7 @@ exports.post = async (req, res, next) => {
             name: req.body.name,
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY), //este global aumenta segurança
-            roles: ["user"] //para cadastrar admin mudar para admin
+            roles: ["admin"] //para cadastrar admin mudar para admin
         });
         //emailService.send(req.body.email, 'bem vindo a Api Node Store','global.EMAIL_TMPL.replace('{ 0}', req.body.name));
         res.status(201).send({ message: "Cliente cadastrado com sucesso!" });
@@ -31,7 +31,7 @@ exports.post = async (req, res, next) => {
 };
 exports.authenticate = async (req, res, next) => {
     let contract = new ValidationContract();
-    //contract.hasMinLen(req.body.name, 3, 'O nome deve ter pelo menos 3 letras');
+    contract.hasMinLen(req.body.name, 3, 'O nome deve ter pelo menos 3 letras');
     contract.isEmail(req.body.email, 'Email inválido');
     contract.hasMinLen(req.body.password, 6, 'A senha deve ter pelo menos 6 letras');
     // se os dados forem invalidos
